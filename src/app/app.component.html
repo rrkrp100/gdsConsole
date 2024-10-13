@@ -1,0 +1,57 @@
+<div id="topbar">
+  <mat-toolbar color="primary">
+    <span>GDS Lite</span>
+  </mat-toolbar>
+  
+</div>
+
+
+<div class="container">
+  <mat-grid-list cols="4" gutterSize="5px" class="grid-container">
+
+    <mat-grid-tile>
+      
+  
+      <mat-form-field>
+        <mat-label>Suppliers</mat-label>
+  
+        <mat-select [formControl]="suppliersForm">
+          @for (supplier of supplierList; track $index) {
+  
+            <mat-option value=supplier>{{supplier}}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+    </mat-grid-tile>
+  
+    <mat-grid-tile>
+      <mat-form-field>
+        <mat-label>PNR</mat-label>
+        <input matInput type="text">
+      </mat-form-field>
+    </mat-grid-tile>
+  
+    <mat-grid-tile>
+      <mat-form-field>
+        <mat-label>Command</mat-label>
+        <input matInput type="text" name="cmd" id="cmd">
+      </mat-form-field>
+    </mat-grid-tile>
+  
+    <mat-grid-tile>
+      <button mat-fab extended>
+        GO
+      </button>
+    </mat-grid-tile>
+  
+    <mat-grid-tile colspan="4" rowspan="2" >
+      <mat-form-field class="output">
+        <mat-label>Output</mat-label>
+        <textarea matInput id="output"></textarea>
+      </mat-form-field>
+      
+    </mat-grid-tile>
+  
+  </mat-grid-list>
+</div>
+
