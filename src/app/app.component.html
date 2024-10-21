@@ -16,9 +16,9 @@
         <mat-label>Suppliers</mat-label>
   
         <mat-select [formControl]="suppliersForm">
-          @for (supplier of supplierList; track $index) {
+          @for (supplier of supplierDict; track $index) {
   
-            <mat-option value=supplier>{{supplier}}</mat-option>
+            <mat-option value=supplier (click)="SelectSupplier(supplier[1])">{{supplier[0]}}</mat-option>
           }
         </mat-select>
       </mat-form-field>
@@ -27,28 +27,26 @@
     <mat-grid-tile>
       <mat-form-field>
         <mat-label>PNR</mat-label>
-        <input matInput type="text">
+        <input matInput type="text" (input)="getPNR($event)">
       </mat-form-field>
     </mat-grid-tile>
   
     <mat-grid-tile>
       <mat-form-field>
         <mat-label>Command</mat-label>
-        <input matInput type="text" name="cmd" id="cmd">
+        <input matInput type="text" name="cmd" (input)="getCommand($event)" id="cmd">
       </mat-form-field>
     </mat-grid-tile>
   
     <mat-grid-tile>
-      <button mat-fab extended>
+      <button mat-fab extended (click)="RunCommand()">
         GO
       </button>
     </mat-grid-tile>
   
     <mat-grid-tile colspan="4" rowspan="2" >
-      <mat-form-field class="output">
-        <mat-label>Output</mat-label>
-        <textarea matInput id="output"></textarea>
-      </mat-form-field>
+      
+      <textarea  readonly matInput id="output" [value] = "output" ></textarea>
       
     </mat-grid-tile>
   
