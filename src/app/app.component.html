@@ -46,7 +46,8 @@
   
     <mat-grid-tile colspan="4" rowspan="2" >
       
-      <textarea  readonly matInput id="output" [value] = "output" ></textarea>
+      <mat-spinner *ngIf="showLoader" style="position: absolute;"></mat-spinner>
+      <textarea #textarea [scrollTop]="textarea.scrollHeight" readonly matInput id="output" [value] = "output" ></textarea>
       
     </mat-grid-tile>
   
